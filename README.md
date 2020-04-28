@@ -1,2 +1,3 @@
-# shopfaves-shopifyapp
-Shopify APP
+# README #
+
+The code for Shopfaves shopify app
