@@ -1,0 +1,17 @@
+# This is an appspec.yml template file for use with AWS CodeDeploy.
+version: 0.2
+artifacts:
+  files:
+    - '**/*'
+phases:
+  pre_build:
+    commands:
+      - echo Installing source NPM dependencies...
+      - npm install
+  build:
+    commands:
+      - npm run build
+      - echo Build started on `date`
+  post_build:
+    commands:
+      - echo Build completed on `date`

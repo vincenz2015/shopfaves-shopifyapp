@@ -29,15 +29,17 @@ class Index extends React.Component {
             <EmptyState
               heading="Discount your products temporarily"
               action={{
-                content: "Select products",
+                content: 'Select products',
                 onAction: () => this.setState({ open: true }),
               }}
               image={img}
-            />
+            >
+              <p>Select products to change their price temporarily.</p>
+            </EmptyState>
           </Layout>
         ) : (
-          <ResourceListWithProducts />
-        )}
+            <ResourceListWithProducts />
+          )}
       </Page>
     );
   }
