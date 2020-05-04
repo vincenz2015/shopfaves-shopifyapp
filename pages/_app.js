@@ -9,6 +9,8 @@ import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 import fetch from 'node-fetch';
 
+const apiKey = (typeof API_KEY !== 'undefined') ? API_KEY : Cookies.get("apiKey");
+
 const client = new ApolloClient({
   fetch: fetch,
   fetchOptions: {
@@ -20,7 +22,7 @@ class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
     const config = {
-      apiKey: API_KEY,
+      apiKey: apiKey,
       shopOrigin: Cookies.get("shopOrigin"),
       forceRedirect: true,
     };

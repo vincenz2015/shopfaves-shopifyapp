@@ -45,6 +45,11 @@ app.prepare().then(() => {
           secure: true,
           sameSite: "none",
         });
+        ctx.cookies.set("apiKey", SHOPIFY_API_KEY, {
+          httpOnly: false,
+          secure: true,
+          sameSite: "none",
+        });
         const registration = await registerWebhook({
           address: `${HOST}/webhooks/products/create`,
           topic: "PRODUCTS_CREATE",
