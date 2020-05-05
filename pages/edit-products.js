@@ -29,7 +29,7 @@ const UPDATE_PRICE = gql`
   }
 `;
 
-class EditProduct extends React.Component {
+class EditProducts extends React.Component {
   state = {
     discount: "",
     price: "",
@@ -131,4 +131,4 @@ class EditProduct extends React.Component {
   };
 }
 
-export default EditProduct;
+export default EditProducts;

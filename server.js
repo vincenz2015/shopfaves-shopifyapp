@@ -1,8 +1,3 @@
-
-/* Reinstall app
-https://95655cd1.ngrok.io/auth?shop=nzshop2me-test.myshopify.com
-*/
-
 require("isomorphic-fetch");
 const dotenv = require("dotenv");
 dotenv.config();
