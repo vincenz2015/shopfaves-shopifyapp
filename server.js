@@ -1,8 +1,3 @@
-
-/* Reinstall app
-https://95655cd1.ngrok.io/auth?shop=nzshop2me-test.myshopify.com
-*/
-
 require("isomorphic-fetch");
 const dotenv = require("dotenv");
 dotenv.config();
@@ -45,12 +40,17 @@ app.prepare().then(() => {
           secure: true,
           sameSite: "none",
         });
+        ctx.cookies.set("apiKey", SHOPIFY_API_KEY, {
+          httpOnly: false,
+          secure: true,
+          sameSite: "none",
+        });
         const registration = await registerWebhook({
           address: `${HOST}/webhooks/products/create`,
           topic: "PRODUCTS_CREATE",
           accessToken,
           shop,
-          apiVersion: ApiVersion.October19,
+          apiVersion: ApiVersion.April20,
         });
 
         if (registration.success) {
@@ -69,7 +69,7 @@ app.prepare().then(() => {
     console.log("received webhook: ", ctx.state.webhook);
   });
 
-  server.use(graphQLProxy({ version: ApiVersion.April19 }));
+  server.use(graphQLProxy({ version: ApiVersion.April20 }));
 
   router.get("*", verifyRequest(), async (ctx) => {
     await handle(ctx.req, ctx.res);
