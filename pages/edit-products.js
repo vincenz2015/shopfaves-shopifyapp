@@ -1,19 +1,13 @@
 import {
-  Banner,
-  Card,
-  DisplayText,
-  Form,
-  FormLayout,
-  Frame,
-  Layout,
-  Page,
-  PageActions,
-  TextField,
+  Banner, Card, DisplayText, Form, FormLayout, 
+  Frame, Layout, Page, PageActions, TextField, 
   Toast,
 } from "@shopify/polaris";
 import store from "store-js";
 import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
+import { TitleBar } from "@shopify/app-bridge-react";
+import mainMenu from "../components/mainMenu";
 
 const UPDATE_PRICE = gql`
   mutation productVariantUpdate($input: ProductVariantInput!) {
@@ -58,6 +52,11 @@ class EditProducts extends React.Component {
           return (
             <Frame>
               <Page>
+                <TitleBar
+                  title="Dashboard"
+                  primaryAction={mainMenu.primaryAction}
+                  secondaryActions={mainMenu.secondaryActions}
+                />
                 <Layout>
                   {showToast}
                   <Layout.Section>{showError}</Layout.Section>

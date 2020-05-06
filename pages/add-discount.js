@@ -10,6 +10,10 @@ import {
   TextField,
   TextStyle,
 } from '@shopify/polaris';
+import { TitleBar } from "@shopify/app-bridge-react";
+import mainMenu from "../components/mainMenu";
+
+mainMenu.primaryAction = { content: 'View Stats', url: '/stats' };
 
 class Settings extends React.Component {
   state = {
@@ -24,6 +28,11 @@ class Settings extends React.Component {
 
     return (
       <Page>
+        <TitleBar
+          title="My Offer"
+          primaryAction={mainMenu.primaryAction}
+          secondaryActions={mainMenu.secondaryActions}
+        />
         <Layout>
           <Layout.AnnotatedSection
             title="Default discount"
