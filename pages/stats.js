@@ -11,7 +11,7 @@ class Stats extends React.Component {
     return (
       <Page>
         <TitleBar
-          title="Dashboard"
+          title="My Stats"
           primaryAction={mainMenu.primaryAction}
           secondaryActions={mainMenu.secondaryActions}
         />

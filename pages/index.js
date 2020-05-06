@@ -14,7 +14,6 @@ class Index extends React.Component {
     return (
       <Page>
         <TitleBar
-          title="Dashboard"
           primaryAction={mainMenu.primaryAction}
           secondaryActions={mainMenu.secondaryActions}
         />
@@ -22,12 +21,13 @@ class Index extends React.Component {
           <EmptyState
             heading="Shopfaves"
             action={{
-              content: 'Welcome to Shopfaves... let\'s go',
-              onAction: () => this.setState({ open: true }),
+              content: 'To start, click here to add products',
+              url: 'add-products'
             }}
             image={img}
-          >
-            <p>Select products to push to Shopfaves!</p>
+          ><p>Promote your top products by showcasing them 
+             on the <a style={{ textDecoration:'none' }} href="https://www.shopfaves.co.nz" target="_blank">Shopfaves.co.nz</a> New Zealand website.
+          </p>
           </EmptyState>
         </Layout>
       </Page>

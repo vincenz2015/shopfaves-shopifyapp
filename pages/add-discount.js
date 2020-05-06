@@ -29,7 +29,7 @@ class Settings extends React.Component {
     return (
       <Page>
         <TitleBar
-          title="Dashboard"
+          title="My Offer"
           primaryAction={mainMenu.primaryAction}
           secondaryActions={mainMenu.secondaryActions}
         />

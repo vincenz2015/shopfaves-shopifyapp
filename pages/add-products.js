@@ -17,6 +17,7 @@ class AddProducts extends React.Component {
     return (
       <Page>
         <TitleBar
+        title="My Products"
           primaryAction={{
             content: "Select products",
             onAction: () => this.setState({ open: true }),
