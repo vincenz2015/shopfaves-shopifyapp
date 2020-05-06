@@ -1,13 +1,13 @@
 import { Page, EmptyState } from "@shopify/polaris";
-import { ResourcePicker, TitleBar } from "@shopify/app-bridge-react";
+import { ResourcePicker } from "@shopify/app-bridge-react";
 import store from "store-js";
 import ResourceListWithProducts from "../components/ResourceList";
+import { TitleBar } from "@shopify/app-bridge-react";
+import mainMenu from "../components/mainMenu";
 
 /* Add products */
 
 const noProductsImage = "https://cdn.shopify.com/s/files/1/0757/9955/files/empty-state.svg";
-
-
 
 class AddProducts extends React.Component {
   state = { open: false };
@@ -21,6 +21,7 @@ class AddProducts extends React.Component {
             content: "Select products",
             onAction: () => this.setState({ open: true }),
           }}
+          secondaryActions={mainMenu.secondaryActions}
         />
         <ResourcePicker
           resourceType="Product"
