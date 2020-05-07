@@ -1,31 +1,49 @@
-import { EmptyState, Layout, Page } from "@shopify/polaris";
+import { Page, Layout, EmptyState } from "@shopify/polaris";
+import store from "store-js";
+import ResourceListWithProductsStats from "../components/ResourceListStats";
 import { TitleBar } from "@shopify/app-bridge-react";
 import mainMenu from "../components/mainMenu";
 
-const img = "https://cdn.shopify.com/s/files/1/0757/9955/files/empty-state.svg";
+/* View stats */
 
-/* Stats */
+const noProductsImage = "https://cdn.shopify.com/s/files/1/0757/9955/files/empty-state.svg";
+
 class Stats extends React.Component {
   state = { open: false };
+
   render() {
+    const emptyState = !store.get("ids");
     return (
-      <Page>
+      <Page title="Statistics" separator>
         <TitleBar
-          title="My Stats"
-          primaryAction={mainMenu.primaryAction}
+          title="View Stats"
           secondaryActions={mainMenu.secondaryActions}
         />
         <Layout>
-          <EmptyState
-            heading="Stats"
-            image={img}
-          >
-            <p>Make some stats!</p>
-          </EmptyState>
+          {emptyState ? (
+            <EmptyState
+              heading="None"
+              action={{
+                content: 'No stats here'
+              }}
+              image={noProductsImage}
+            >
+              <p>No statistics yet.</p>
+            </EmptyState>
+          ) : (
+              <ResourceListWithProductsStats />
+            )}
         </Layout>
       </Page>
     );
   }
+
+  handleSelection = (resources) => {
+    const idsFromResources = resources.selection.map((product) => product.id);
+    this.setState({ open: false });
+    console.log(idsFromResources);
+    store.set("ids", idsFromResources);
+  };
 }
 
 export default Stats;
