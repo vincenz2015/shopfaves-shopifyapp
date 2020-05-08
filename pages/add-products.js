@@ -15,7 +15,7 @@ class AddProducts extends React.Component {
   render() {
     const emptyState = !store.get("ids");
     return (
-      <Page>
+      <Page title="Select Products" separator>
         <TitleBar
         title="My Products"
           primaryAction={{

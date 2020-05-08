@@ -27,7 +27,7 @@ class Settings extends React.Component {
     const textStatus = enabled ? 'enabled' : 'disabled';
 
     return (
-      <Page>
+      <Page title="Create an Offer" separator>
         <TitleBar
           title="My Offer"
           primaryAction={mainMenu.primaryAction}
