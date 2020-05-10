@@ -2,22 +2,22 @@ const getSubscriptionUrl = async (ctx, accessToken, shop) => {
   const query = JSON.stringify({
     query: `mutation {
         appSubscriptionCreate(
-            name: "Super Duper Plan"
+            name: "Shopfaves pay per referral plan"
             returnUrl: "${process.env.HOST}"
             test: true
             lineItems: [
             {
               plan: {
                 appUsagePricingDetails: {
-                    cappedAmount: { amount: 10, currencyCode: USD }
-                    terms: "$1 for 1000 emails"
+                    cappedAmount: { amount: 50, currencyCode: USD }
+                    terms: "50c for each referral click through on your products"
                 }
               }
             }
             {
               plan: {
                 appRecurringPricingDetails: {
-                    price: { amount: 10, currencyCode: USD }
+                    price: { amount: 0, currencyCode: USD }
                 }
               }
             }
